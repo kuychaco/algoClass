@@ -77,8 +77,9 @@ function Node(value) {
   this.value = value;
 }
 
-function LinkedList(value) {
-  this.head = (value !== undefined) ? new Node(value) : null;
+function LinkedList(headValue) {
+  if (headValue === undefined) console.log('Must provide value for first node');
+  this.head = new Node(headValue);
 }
 
 LinkedList.prototype.forEach = function(callback) {
@@ -97,25 +98,33 @@ LinkedList.prototype.print = function() {
   return result.join(', ');
 };
 
-Node.prototype.insertAfter = function(value) {
+LinkedList.prototype.findNode = function(value) {
+  var node = this.head;
+  while (node) {
+    if (node.value === value) return node;
+  }
+  return 'No node with value: ' + value + ' found.';
+};
+
+LinkedList.prototype.insertAfter = function(node, value) {
   // get reference to former next
-  var oldNext = this.next;
+  var oldNext = node.next;
   // create new node
   var newNext = new Node(value);
   // store it as the new next
-  this.next = newNext;
+  node.next = newNext;
   // set next for the new node to be the old next
   newNext.next = oldNext;
   return newNext.value;
 };
 
-Node.prototype.removeAfter = function() {
+LinkedList.prototype.removeAfter = function(node) {
   // store reference to removed node
-  var removedNode = this.next;
+  var removedNode = node.next;
   // get reference to node after removed node
   var newNext = removedNode.next;
   // set newNext as the next node
-  this.next = newNext;
+  node.next = newNext;
   // remove reference from removed node to linked list
   removedNode.next = null;
   return removedNode.value;
@@ -146,6 +155,7 @@ LinkedList.prototype.appendToTail = function(value) {
     node = node.next;
   }
   node.next = newTail;
+
   return newTail.value;
 };
 
@@ -153,16 +163,14 @@ LinkedList.prototype.appendToTail = function(value) {
 var myEmptyList = new LinkedList();
 var myList = new LinkedList(0);
 
-console.log(myEmptyList, 'should have head === null');
-console.log(myList, 'should have head !== null');
-
-console.log(myList.head.insertAfter(1), 'should be 1');
+console.log(myList.print(), 'should be 0');
+console.log(myList.insertAfter(myList.head, 1), 'should be 1');
 console.log(myList.print(), 'should be 0, 1');
-console.log(myList.head.next.insertAfter(3), 'should be 3');
+console.log(myList.insertAfter(myList.head.next, 3), 'should be 3');
 console.log(myList.print(), 'should be 0, 1, 3');
-console.log(myList.head.next.insertAfter(2), 'should be 2');
+console.log(myList.insertAfter(myList.head.next, 2), 'should be 2');
 console.log(myList.print(), 'should be 0, 1, 2, 3');
-console.log(myList.head.removeAfter(), 'should be 1');
+console.log(myList.removeAfter(myList.head), 'should be 1');
 console.log(myList.print(), 'should be 0, 2, 3');
 console.log(myList.insertHead(-1), 'should be -1');
 console.log(myList.print(), 'should be -1, 0, 2, 3');
