@@ -22,11 +22,19 @@ remove node after the reference node
 
 myList.insertHead(value)
 => value associated with new head
-Insert new head node at the beginning of the list with the value passed in
+insert new head node at the beginning of the list with the value passed in
 
 myList.removeHead()
 => value of removed head node
 remove the head node of the linked list
+
+* Optimization:
+Say we have a linked list that has 100 items and we want to add an item to the very end. How would you do that with your current implementation? How can you modify the data structure to add an item to the end in constant time?
+
+myList.append(value)
+=> value of tail node
+add a new tail node at the end of the list with the associated value passed in
+
 
 Now let's think about creating insertBefore and removeBefore methods for the nodes in our list. Can you think of an efficient way to do so?
 
@@ -129,6 +137,18 @@ LinkedList.prototype.removeHead = function() {
   return oldHead.value;
 }
 
+LinkedList.prototype.appendToTail = function(value) {
+  var newTail = new Node(value);
+
+  // without myList.tail property: O(n)
+  var node = this.head;
+  while(node.next) {
+    node = node.next;
+  }
+  node.next = newTail;
+  return newTail.value;
+};
+
 
 var myEmptyList = new LinkedList();
 var myList = new LinkedList(0);
@@ -148,3 +168,7 @@ console.log(myList.insertHead(-1), 'should be -1');
 console.log(myList.print(), 'should be -1, 0, 2, 3');
 console.log(myList.removeHead(), 'should be -1');
 console.log(myList.print(), 'should be 0, 2, 3');
+console.log(myList.appendToTail(4), 'should be 4');
+console.log(myList.print(), 'should be 0, 2, 3, 4');
+
+
