@@ -14,7 +14,7 @@ Use an object as the underlying data structure.
 *** Operations:
 
 myStack.push(value)
-=> size of stack
+=> count of stack
 add value to collection
 
 myStack.pop()
@@ -25,7 +25,7 @@ myStack.peek()
 => most recent element added collection
 Similiar to pop, but do not remove element from collection
 
-myStack.size()
+myStack.count()
 => number of elements in stack
 
 
@@ -53,14 +53,14 @@ function Stack(capacity) {
   this._capacity = capacity;
   this._storage = {};
   this._index = 0;
-  this._size = 0;
+  this._count = 0;
 }
 
 // O(1)
 Stack.prototype.push = function(value) {
-  if (this._size < this._capacity) {
+  if (this._count < this._capacity) {
     this._storage[this._index++] = value;
-    return ++this._size;
+    return ++this._count;
   }
   return 'Max capacity already reached. Remove element before adding a new one.';
 };
@@ -69,8 +69,8 @@ Stack.prototype.push = function(value) {
 Stack.prototype.pop = function() {
   var value = this._storage[--this._index];
   delete this._storage[this._index];
-  if (this._size > 0) {
-    this._size--;
+  if (this._count > 0) {
+    this._count--;
   }
   return value;
 };
@@ -81,8 +81,8 @@ Stack.prototype.peek = function() {
 }
 
 // O(1)
-Stack.prototype.size = function() {
-  return this._size;
+Stack.prototype.count = function() {
+  return this._count;
 };
 
 
@@ -92,6 +92,7 @@ console.log(myStack.push('b'), 'should be 2');
 console.log(myStack.push('c'), 'should be 3');
 console.log(myStack.push('d'), 'should be Max capacity reached');
 console.log(myStack.pop(), 'should be c');
-console.log(myStack.size(), 'should be 2');
+console.log(myStack.count(), 'should be 2');
 console.log(myStack.peek(), 'should be b');
-console.log(myStack.size(), 'should be 2');
+console.log(myStack.count(), 'should be 2');
+
