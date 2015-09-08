@@ -121,9 +121,7 @@ LinkedList.prototype.insertAfter = function(node, value) {
 
 LinkedList.prototype.removeAfter = function(node) {
   // if node is tail, then there's nothing to remove
-  if (node.next === null) {
-    return 'Reference node has no following node';
-  }
+  if (!removedNode) return 'Nothing to remove';
   // store reference to removed node
   var removedNode = node.next;
   // get reference to node after removed node
