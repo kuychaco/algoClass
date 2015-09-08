@@ -48,7 +48,6 @@ What's the time complexity?
 
  */
 
-// 10 min
 function Stack(capacity) {
   this._capacity = capacity;
   this._storage = {};

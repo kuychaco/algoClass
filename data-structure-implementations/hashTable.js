@@ -55,8 +55,6 @@ Implement a hash table with a binary search tree.
 
 */
 
-// 60 min
-
 // Simple hashing function to use in your implementation
 function simpleHash(str, tableSize) {
   var hash = 0;

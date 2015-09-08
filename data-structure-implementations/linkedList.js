@@ -77,8 +77,6 @@ https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
  */
 
 
-// 40 min
-
 function Node(value) {
   this.value = value;
   this.next = null;

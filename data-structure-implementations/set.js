@@ -39,7 +39,6 @@ Make your set able to take objects, arrays, and functions as values in addition 
 Note: ES6 has a Set data structure as part of the core language.
  */
 
-// 15 min KU
 function Set(capacity) {
   this._capacity = capacity;
   this._storage = {};

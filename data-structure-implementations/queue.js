@@ -47,7 +47,6 @@ What's the time complexity?
 
  */
 
-// 20 min
 function Queue(capacity) {
   this._capacity = capacity;
   this._storage = {};
