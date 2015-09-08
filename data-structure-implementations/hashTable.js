@@ -88,7 +88,11 @@ HashTable.prototype.find = function(key) {
       matchIndex = index;
     }
   });
-  return { match: match, bucket: bucket, matchIndex: matchIndex };
+  return {
+    match: match,
+    bucket: bucket,
+    matchIndex: matchIndex
+  };
 };
 
 // O(1)
@@ -156,7 +160,7 @@ console.log(myMap, 'should have no elements');
 HashTable.prototype.count = function() {
   return this._count;
 }
-// myMap.count()
+console.log(myMap.count(), 'should be 0');
 // => integer number of key/value pairs in hash table
 
 // O(n)
