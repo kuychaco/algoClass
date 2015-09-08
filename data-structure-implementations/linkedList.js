@@ -77,11 +77,12 @@ https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
  */
 
 
-// Singly linked list 30 min
+// 40 min
 
 function Node(value) {
-  this.next = null;
   this.value = value;
+  this.next = null;
+  this.prev = null;
 }
 
 function LinkedList(headValue) {
@@ -113,26 +114,34 @@ LinkedList.prototype.insertAfter = function(node, value) {
   var newNext = new Node(value);
   // store it as the new next
   node.next = newNext;
+  newNext.prev = node;
   // set next for the new node to be the old next
   newNext.next = oldNext;
+  oldNext && (oldNext.prev = newNext); // do this only if oldNext is not null
   // if reference node is tail, set tail to newNext
   if (this.tail === node) this.tail = newNext;
+  // set prev properties
+
   return newNext.value;
 };
 
 LinkedList.prototype.removeAfter = function(node) {
-  // if node is tail, then there's nothing to remove
-  if (node.next === null) {
-    return 'Reference node has no following node';
-  }
   // store reference to removed node
   var removedNode = node.next;
+  // if node is tail, then there's nothing to remove
+  if (!removedNode) return 'Nothing to remove';
+
   // get reference to node after removed node
   var newNext = removedNode.next;
-  // set newNext as the next node
+
+  // set references between node and new next
   node.next = newNext;
+  newNext.prev = node;
+
   // remove reference from removed node to linked list
   removedNode.next = null;
+  removedNode.prev = null;
+
   // if removedNode is tail, set tail to node
   if (removedNode === this.tail) this.tail = node;
   return removedNode.value;
@@ -143,6 +152,7 @@ LinkedList.prototype.insertHead = function(value) {
   var oldHead = this.head;
   this.head = newHead;
   newHead.next = oldHead;
+  oldHead.prev = newHead;
   return this.head.value;
 };
 
@@ -150,6 +160,7 @@ LinkedList.prototype.removeHead = function() {
   var oldHead = this.head;
   var newHead = oldHead.next;
   this.head = newHead;
+  newHead.prev = null;
   oldHead.next = null;
   return oldHead.value;
 }
@@ -172,14 +183,53 @@ LinkedList.prototype.appendToTail = function(value) {
   //   node = node.next;
   // }
   // node.next = newTail;
+  // newTail.prev = node;
 
   // with myList.tail property: O(1)
-  this.tail.next = newTail;
+  var oldTail = this.tail;
+  oldTail.next = newTail;
+  newTail.prev = oldTail;
   this.tail = newTail;
 
   return newTail.value;
 };
 
+LinkedList.prototype.insertBefore = function(node, value) {
+  var oldPrev = node.prev;
+  var newPrev = new Node(value);
+  // Set up references between reference node and inserted node
+  node.prev = newPrev;
+  newPrev.next = node;
+  // Set up references between inserted node and old previous node
+  newPrev.prev = oldPrev;
+  oldPrev.next = newPrev;
+
+  // if node is head, set newPrev as head
+  if (node === this.head) this.head = newPrev;
+
+  return newPrev.value;
+};
+
+LinkedList.prototype.removeBefore = function(node) {
+  var removedNode = node.prev;
+
+  // if node is head, don't do anything
+  if (!removedNode) return 'Nothing to remove';
+
+  var newPrev = removedNode.prev;
+  // if newPrev is null, then removed node is head, set node to be new head
+  if (!newPrev) this.head = node;
+  // Set up references between node and new previous node
+  // if newPrev is not null, set its next property to node
+  newPrev && (newPrev.next = node);
+  node.prev = newPrev;
+  // Break references from removed node to linked list
+  removedNode.next = null;
+  removedNode.prev = null;
+
+
+  return removedNode.value;
+};
 
 var myList = new LinkedList(0);
 
@@ -203,6 +253,11 @@ console.log(myList.findNode(3) === myList.head.next.next, 'should be true');
 myList.insertAfter(myList.findNode(2), 2.5);
 console.log(myList.print(), 'should be 0, 2, 2.5, 3, 4');
 myList.removeAfter(myList.findNode(2));
+console.log(myList.print(), 'should be 0, 2, 3, 4');
+
+console.log(myList.insertBefore(myList.head.next, 1), 'should be 1');
+console.log(myList.print(), 'should be 0, 1, 2, 3, 4');
+console.log(myList.removeBefore(myList.head.next.next), 'should be 1');
 console.log(myList.print(), 'should be 0, 2, 3, 4');
 
 
