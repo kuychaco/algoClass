@@ -87,6 +87,7 @@ function Node(value) {
 function LinkedList(headValue) {
   if (headValue === undefined) console.log('Must provide value for first node');
   this.head = new Node(headValue);
+  this.tail = this.head;
 }
 
 LinkedList.prototype.forEach = function(callback) {
@@ -114,10 +115,16 @@ LinkedList.prototype.insertAfter = function(node, value) {
   node.next = newNext;
   // set next for the new node to be the old next
   newNext.next = oldNext;
+  // if reference node is tail, set tail to newNext
+  if (this.tail === node) this.tail = newNext;
   return newNext.value;
 };
 
 LinkedList.prototype.removeAfter = function(node) {
+  // if node is tail, then there's nothing to remove
+  if (node.next === null) {
+    return 'Reference node has no following node';
+  }
   // store reference to removed node
   var removedNode = node.next;
   // get reference to node after removed node
@@ -126,6 +133,8 @@ LinkedList.prototype.removeAfter = function(node) {
   node.next = newNext;
   // remove reference from removed node to linked list
   removedNode.next = null;
+  // if removedNode is tail, set tail to node
+  if (removedNode === this.tail) this.tail = node;
   return removedNode.value;
 };
 
@@ -157,12 +166,16 @@ LinkedList.prototype.findNode = function(value) {
 LinkedList.prototype.appendToTail = function(value) {
   var newTail = new Node(value);
 
-  // without myList.tail property: O(n)
-  var node = this.head;
-  while(node.next) {
-    node = node.next;
-  }
-  node.next = newTail;
+  // // without myList.tail property: O(n)
+  // var node = this.head;
+  // while(node.next) {
+  //   node = node.next;
+  // }
+  // node.next = newTail;
+
+  // with myList.tail property: O(1)
+  this.tail.next = newTail;
+  this.tail = newTail;
 
   return newTail.value;
 };
