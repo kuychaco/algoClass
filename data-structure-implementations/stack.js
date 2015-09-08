@@ -49,48 +49,38 @@ What's the time complexity?
  */
 
 function Stack(capacity) {
-  this._capacity = capacity;
-  this._storage = {};
-  this._count = 0;
+  // implement me...
 }
 
-// O(1)
 Stack.prototype.push = function(value) {
-  if (this._count < this._capacity) {
-    this._storage[this._count++] = value;
-    return this._count;
-  }
-  return 'Max capacity already reached. Remove element before adding a new one.';
+  // implement me...
 };
+// Time complexity:
 
-// O(1)
 Stack.prototype.pop = function() {
-  var value = this._storage[--this._count];
-  delete this._storage[this._count];
-  if (this._count < 0) {
-    this._count = 0;
-  }
-  return value;
+  // implement me...
 };
+// Time complexity:
 
-// O(1)
 Stack.prototype.peek = function() {
-  return this._storage[this._count-1];
-}
-
-// O(1)
-Stack.prototype.count = function() {
-  return this._count;
+  // implement me...
 };
+// Time complexity:
 
+Stack.prototype.count = function() {
+  // implement me...
+};
+// Time complexity:
 
-var myStack = new Stack(3);
-console.log(myStack.push('a'), 'should be 1');
-console.log(myStack.push('b'), 'should be 2');
-console.log(myStack.push('c'), 'should be 3');
-console.log(myStack.push('d'), 'should be Max capacity reached');
-console.log(myStack.pop(), 'should be c');
-console.log(myStack.count(), 'should be 2');
-console.log(myStack.peek(), 'should be b');
-console.log(myStack.count(), 'should be 2');
+// Feel free to uncomment these to help with testing...
+
+// var myStack = new Stack(3);
+// console.log(myStack.push('a'), 'should be 1');
+// console.log(myStack.push('b'), 'should be 2');
+// console.log(myStack.push('c'), 'should be 3');
+// console.log(myStack.push('d'), 'should be Max capacity reached');
+// console.log(myStack.pop(), 'should be c');
+// console.log(myStack.count(), 'should be 2');
+// console.log(myStack.peek(), 'should be b');
+// console.log(myStack.count(), 'should be 2');
 

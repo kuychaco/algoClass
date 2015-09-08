@@ -40,58 +40,43 @@ Note: ES6 has a Set data structure as part of the core language.
  */
 
 function Set(capacity) {
-  this._capacity = capacity;
-  this._storage = {};
-  this._count = 0;
+  // implement me...
 }
 
-// O(1)
-Set.prototype.count = function() {
-  return this._count;
+Set.prototype.count = function() { 
+  // implement me...
 };
+// Time complexity: 
 
-// O(1)
 Set.prototype.add = function(value) {
-  if (this._count < this._capacity) {
-    this._storage[value] = true;
-    this._count++;
-    return this;
-  }
-  return 'Max capacity already reached. Remove element before adding a new one.'
+  // implement me...
 };
+// Time complexity: 
 
-// O(1)
 Set.prototype.delete = function(value) {
-  if (this._storage[value]) {
-    delete this._storage[value];
-    this._count--;
-    return true;
-  }
-  return false;
+  // implement me...
 };
+// Time complexity: 
 
-// O(1)
 Set.prototype.has = function(value) {
-  return !!this._storage[value];
+  // implement me...
 };
+// Time complexity: 
 
-// O(n)
 Set.prototype.forEach = function(callback) {
-  var values = this._storage;
-  for (var key in values) {
-    callback(key);
-  }
+  // implement me...
 };
+// Time complexity: 
 
 
-mySet = new Set(3);
-console.log(mySet.add('doe')._storage, 'should have doe');
-console.log(mySet.add('ray')._storage, 'should have ray');
-console.log(mySet.add('me')._storage, 'should have me');
-console.log(mySet.add('fa'), 'should be max capacity reached');
-console.log(mySet.count(), 'should be 3');
-console.log(mySet.delete('me'), 'should be true');
-console.log(mySet.delete('so'), 'should be false');
-console.log(mySet.has('doe'), 'should be true');
-console.log(mySet.has('tea'), 'should be false');
-mySet.forEach(console.log);
+// mySet = new Set(3);
+// console.log(mySet.add('doe')._storage, 'should have doe');
+// console.log(mySet.add('ray')._storage, 'should have ray');
+// console.log(mySet.add('me')._storage, 'should have me');
+// console.log(mySet.add('fa'), 'should be max capacity reached');
+// console.log(mySet.count(), 'should be 3');
+// console.log(mySet.delete('me'), 'should be true');
+// console.log(mySet.delete('so'), 'should be false');
+// console.log(mySet.has('doe'), 'should be true');
+// console.log(mySet.has('tea'), 'should be false');
+// mySet.forEach(console.log); 
