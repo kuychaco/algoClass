@@ -9,7 +9,7 @@ Your set should be able to store any JavaScript primitive
 
 *** Operations:
 
-mySet.size()
+mySet.count()
 => integer value for the number of values present in set
 
 mySet.add(value)
@@ -43,19 +43,19 @@ Note: ES6 has a Set data structure as part of the core language.
 function Set(capacity) {
   this._capacity = capacity;
   this._storage = {};
-  this._size = 0;
+  this._count = 0;
 }
 
 // O(1)
-Set.prototype.size = function() {
-  return this._size;
+Set.prototype.count = function() {
+  return this._count;
 };
 
 // O(1)
 Set.prototype.add = function(value) {
-  if (this._size < this._capacity) {
+  if (this._count < this._capacity) {
     this._storage[value] = true;
-    this._size++;
+    this._count++;
     return this;
   }
   return 'Max capacity already reached. Remove element before adding a new one.'
@@ -65,7 +65,7 @@ Set.prototype.add = function(value) {
 Set.prototype.delete = function(value) {
   if (this._storage[value]) {
     delete this._storage[value];
-    this._size--;
+    this._count--;
     return true;
   }
   return false;
@@ -90,7 +90,7 @@ console.log(mySet.add('doe')._storage, 'should have doe');
 console.log(mySet.add('ray')._storage, 'should have ray');
 console.log(mySet.add('me')._storage, 'should have me');
 console.log(mySet.add('fa'), 'should be max capacity reached');
-console.log(mySet.size(), 'should be 3');
+console.log(mySet.count(), 'should be 3');
 console.log(mySet.delete('me'), 'should be true');
 console.log(mySet.delete('so'), 'should be false');
 console.log(mySet.has('doe'), 'should be true');
