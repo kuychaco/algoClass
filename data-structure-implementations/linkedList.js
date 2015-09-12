@@ -73,8 +73,26 @@ remove node before the refNode passed in
 Implement a circularly linked list:
 https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
 
-Reimplement stack and queue data structures using linked lists.
 
+*** Exercises:
+
+1. Implement a stack using a linked list.
+
+2. Implement a queue using a linked list.
+
+3. Write a method that remove duplicates from an unsorted linked list. What is the time complexity? Re-implement the method without using any additional storage structure (constant space complexity). What is the time complexity?
+
+4. Reverse a linked list. Do not use any additional storage structures.
+
+5. Find the kth to last element of a singly linked list.
+
+6. Detect if a linked list has a loop.
+
+7. Given two linked lists that represent numbers, return a linked list that represents the sum of those numbers:
+  4 2 5        (4 -> 2 -> 5)
++ 7 3 1        (7 -> 3 -> 1)
+--------
+1 1 5 6   (1 -> 1 -> 5 -> 6)
 
  */
 
