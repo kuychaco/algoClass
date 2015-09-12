@@ -27,7 +27,7 @@ mySet.forEach(callbackFn)
 calls callbackFn once for each value in the set
 
 
-*** Nightmare mode:
+*** Extra Credit:
 
 Modify your set to take a max capacity and return a string if you try to add an element when there's no more room
 mySet.add(value)

@@ -68,7 +68,7 @@ remove node before the refNode passed in
 
 
 
-*** Nightmare mode:
+*** Extra Credit:
 
 Implement a circularly linked list:
 https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
