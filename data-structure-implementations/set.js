@@ -27,7 +27,7 @@ mySet.forEach(callbackFn)
 calls callbackFn once for each value in the set
 
 
-*** Nightmare mode:
+*** Extra Credit:
 
 Modify your set to take a max capacity and return a string if you try to add an element when there's no more room
 mySet.add(value)
@@ -51,8 +51,16 @@ Set.prototype.count = function() {
 };
 
 // O(1)
+Set.prototype.has = function(value) {
+  return !!this._storage[value];
+};
+
+// O(1)
 Set.prototype.add = function(value) {
-  if (this._count < this._capacity) {
+  if (this.has(value)) {
+    return 'Set already has value';
+  }
+  else if (this._count < this._capacity) {
     this._storage[value] = true;
     this._count++;
     return this;
@@ -70,11 +78,6 @@ Set.prototype.delete = function(value) {
   return false;
 };
 
-// O(1)
-Set.prototype.has = function(value) {
-  return !!this._storage[value];
-};
-
 // O(n)
 Set.prototype.forEach = function(callback) {
   var values = this._storage;
@@ -89,6 +92,8 @@ console.log(mySet.add('doe')._storage, 'should have doe');
 console.log(mySet.add('ray')._storage, 'should have ray');
 console.log(mySet.add('me')._storage, 'should have me');
 console.log(mySet.add('fa'), 'should be max capacity reached');
+console.log(mySet.count(), 'should be 3');
+console.log(mySet.add('doe'), 'should say already has value');
 console.log(mySet.count(), 'should be 3');
 console.log(mySet.delete('me'), 'should be true');
 console.log(mySet.delete('so'), 'should be false');
