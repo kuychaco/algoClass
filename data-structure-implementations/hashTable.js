@@ -111,17 +111,4 @@ HashTable.prototype.forEach = function(callback) {
 };
 // Time complexity:
 
-// var myMap = new HashTable(10);
 
-// console.log(myMap.set('key', 'value'), 'should be HT object');
-// console.log(myMap.get('key'), 'should be value');
-// console.log(myMap.has('key'), 'should be true');
-// console.log(myMap.has('foo'), 'should be false');
-// console.log(myMap.delete('key'), 'should be true');
-// console.log(myMap.delete('foo'), 'should be false');
-// console.log(myMap, 'should have no elements');
-// console.log(myMap.count(), 'should be 0');
-
-// myMap.set('foo', 'bar');
-// myMap.set('fooAgain', 'barAgain');
-// myMap.forEach(console.log);

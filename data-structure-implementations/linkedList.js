@@ -144,34 +144,5 @@ LinkedList.prototype.removeBefore = function(node) {
 // Time complexity: 
 
 
-// var myList = new LinkedList(0);
 
-// // PART 1
-// console.log(myList.print(), 'should be 0');
-// console.log(myList.insertAfter(myList.head, 1), 'should be 1');
-// console.log(myList.print(), 'should be 0, 1');
-// console.log(myList.insertAfter(myList.head.next, 3), 'should be 3');
-// console.log(myList.print(), 'should be 0, 1, 3');
-// console.log(myList.insertAfter(myList.head.next, 2), 'should be 2');
-// console.log(myList.print(), 'should be 0, 1, 2, 3');
-// console.log(myList.removeAfter(myList.head), 'should be 1');
-// console.log(myList.print(), 'should be 0, 2, 3');
-// console.log(myList.insertHead(-1), 'should be -1');
-// console.log(myList.print(), 'should be -1, 0, 2, 3');
-// console.log(myList.removeHead(), 'should be -1');
-// console.log(myList.print(), 'should be 0, 2, 3');
-// console.log(myList.appendToTail(4), 'should be 4');
-// console.log(myList.print(), 'should be 0, 2, 3, 4');
-// console.log(myList.findNode(0) === myList.head, 'should be true');
-// console.log(myList.findNode(3) === myList.head.next.next, 'should be true');
-// myList.insertAfter(myList.findNode(2), 2.5);
-// console.log(myList.print(), 'should be 0, 2, 2.5, 3, 4');
-// myList.removeAfter(myList.findNode(2));
-// console.log(myList.print(), 'should be 0, 2, 3, 4');
-
-// // PART 2
-// console.log(myList.insertBefore(myList.head.next, 1), 'should be 1');
-// console.log(myList.print(), 'should be 0, 1, 2, 3, 4');
-// console.log(myList.removeBefore(myList.head.next.next), 'should be 1');
-// console.log(myList.print(), 'should be 0, 2, 3, 4');
 

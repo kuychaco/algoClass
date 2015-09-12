@@ -69,14 +69,4 @@ Set.prototype.forEach = function(callback) {
 // Time complexity: 
 
 
-// mySet = new Set(3);
-// console.log(mySet.add('doe')._storage, 'should have doe');
-// console.log(mySet.add('ray')._storage, 'should have ray');
-// console.log(mySet.add('me')._storage, 'should have me');
-// console.log(mySet.add('fa'), 'should be max capacity reached');
-// console.log(mySet.count(), 'should be 3');
-// console.log(mySet.delete('me'), 'should be true');
-// console.log(mySet.delete('so'), 'should be false');
-// console.log(mySet.has('doe'), 'should be true');
-// console.log(mySet.has('tea'), 'should be false');
-// mySet.forEach(console.log); 
+

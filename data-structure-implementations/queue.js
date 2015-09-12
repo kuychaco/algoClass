@@ -71,12 +71,4 @@ Queue.prototype.count = function() {
 // Time complexity:
 
 
-// var myQueue = new Queue(3);
-// console.log(myQueue.enqueue('a'), 'should be 1');
-// console.log(myQueue.enqueue('b'), 'should be 2');
-// console.log(myQueue.enqueue('c'), 'should be 3');
-// console.log(myQueue.enqueue('d'), 'should be Max capacity reached');
-// console.log(myQueue.dequeue(), 'should be a');
-// console.log(myQueue.count(), 'should be 2');
-// console.log(myQueue.peek(), 'should be b');
-// console.log(myQueue.count(), 'should be 2');
+
