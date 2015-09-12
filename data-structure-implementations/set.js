@@ -63,12 +63,14 @@ ex: {1,2,3} hasSubset {2,3,4} => false
 ex: {1,2,3} hasSubset {2,3} => true
 
 
-2. Using a set, create a whitelist filter - given a list of whitelist items and a collection to be filtered, return an array with only the items from the collection that are on the whitelist:
+2*. Using a set, create a whitelist filter - given a list of whitelist items and a collection to be filtered, return an array with only the items from the collection that are on the whitelist:
 
 whitelistFilter(collection <array>, whitelist <array>)
 => filtered collection <array> with only items from white list
 
-3. Now create a blacklist filter.
+3*. Now create a blacklist filter.
+
+* exercises adapted from Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne
 
  */
 
