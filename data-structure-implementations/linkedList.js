@@ -88,7 +88,9 @@ https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
 
 6. Detect if a linked list has a loop.
 
-7. Given two linked lists that represent numbers, return a linked list that represents the sum of those numbers:
+7. Check if a linked list is a palindrome.
+
+8. Given two linked lists that represent numbers, return a linked list that represents the sum of those numbers:
   4 2 5        (4 -> 2 -> 5)
 + 7 3 1        (7 -> 3 -> 1)
 --------

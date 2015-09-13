@@ -51,7 +51,16 @@ Resize the hash table:
 - if the count becomes greater than 75% of the table size, double the table size and redistribute the key/value pairs
 - if the count becomes less than 25% of the table size, cut the table size in half and redistribute the key/value pairs
 
-Implement a hash table with a binary search tree.
+
+
+*** Exercises:
+
+1. Implement a hash table with a binary search tree.
+
+2. Given two arrays with values, return the values that are present in both. Do this in linear time. 
+
+3. Implement a hash table using linked lists for collision-handling. Why might this be preferable to using arrays. 
+
 
 */
 
