@@ -38,6 +38,39 @@ mySet.add(value)
 Make your set able to take objects, arrays, and functions as values in addition to just primitives.
 
 
+ */
+
+function Set(capacity) {
+  // implement me...
+}
+
+Set.prototype.count = function() { 
+  // implement me...
+};
+// Time complexity: 
+
+Set.prototype.add = function(value) {
+  // implement me...
+};
+// Time complexity: 
+
+Set.prototype.delete = function(value) {
+  // implement me...
+};
+// Time complexity: 
+
+Set.prototype.has = function(value) {
+  // implement me...
+};
+// Time complexity: 
+
+Set.prototype.forEach = function(callback) {
+  // implement me...
+};
+// Time complexity: 
+
+
+/*
 *** Exercises:
 
 1. Implement the following set theory operations:
@@ -73,35 +106,3 @@ whitelistFilter(collection <array>, whitelist <array>)
 * exercises adapted from Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne
 
  */
-
-function Set(capacity) {
-  // implement me...
-}
-
-Set.prototype.count = function() { 
-  // implement me...
-};
-// Time complexity: 
-
-Set.prototype.add = function(value) {
-  // implement me...
-};
-// Time complexity: 
-
-Set.prototype.delete = function(value) {
-  // implement me...
-};
-// Time complexity: 
-
-Set.prototype.has = function(value) {
-  // implement me...
-};
-// Time complexity: 
-
-Set.prototype.forEach = function(callback) {
-  // implement me...
-};
-// Time complexity: 
-
-
-
