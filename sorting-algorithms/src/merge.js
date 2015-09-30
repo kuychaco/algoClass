@@ -13,7 +13,7 @@ Split array into sublists of size 1, merge adjacent sublists into sorted lists, 
 
 *** Exercises
 
-- Implement recursive merge sort
+- Implement recursive merge sort (you might want to write a helper function to handle the merge step)
 - Implement iterative merge sort
 - Identify time complexity
 
