@@ -28,7 +28,7 @@ myQueue.count()
 => number of elements in queue
 
 
-*** Nightmare mode:
+*** Extra Credit:
 
 Modify your queue to take a max capacity and return a string if you try to add an element when there's no more room:
 myQueue.enqueue(value)
@@ -45,49 +45,45 @@ myQueue.until(7)
 => 3
 What's the time complexity?
 
+
+
+
  */
 
 function Queue(capacity) {
-  this._capacity = capacity;
-  this._storage = {};
-  this._head = 0;
-  this._tail = 0;
+  // implement me...
 }
 
-// O(1)
 Queue.prototype.enqueue = function(value) {
-  if (this.count() < this._capacity) {
-    this._storage[this._tail++] = value;
-    return this.count();
-  }
-  return 'Max capacity already reached. Remove element before adding a new one.';
+  // implement me...
 };
+// Time complexity:
 
-// O(1)
 Queue.prototype.dequeue = function() {
-  var element = this._storage[this._head];
-  delete this._storage[this._head];
-  if (this._head < this._tail) this._head++;
-  return element;
+  // implement me...
 };
+// Time complexity:
 
-// O(1)
 Queue.prototype.peek = function() {
-  return this._storage[this._head];
+  // implement me...
 }
 
-// O(1)
 Queue.prototype.count = function() {
-  return this._tail - this._head;
+  // implement me...
 };
+// Time complexity:
 
 
-var myQueue = new Queue(3);
-console.log(myQueue.enqueue('a'), 'should be 1');
-console.log(myQueue.enqueue('b'), 'should be 2');
-console.log(myQueue.enqueue('c'), 'should be 3');
-console.log(myQueue.enqueue('d'), 'should be Max capacity reached');
-console.log(myQueue.dequeue(), 'should be a');
-console.log(myQueue.count(), 'should be 2');
-console.log(myQueue.peek(), 'should be b');
-console.log(myQueue.count(), 'should be 2');
+
+/*
+*** Exercises:
+
+1. Implement a queue using two stacks.
+
+2. Implement a double-ended queue, with the following methods: enqueueLeft, dequeueLeft, enqueueRight, dequeueRight.
+
+3. Given a tree, print out the value of each node in breadth-first order using a queue data structure. 
+
+
+ */
+
