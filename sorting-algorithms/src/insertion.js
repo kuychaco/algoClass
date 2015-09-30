@@ -1,6 +1,8 @@
 /*
 INSERTION SORT
 
+*** Description
+
 Iterate over array and grow a sorted array behind current element.
 
 For each position, compare value of element with previous elements and swap positions if previous element is larger.
