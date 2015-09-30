@@ -1,0 +1,63 @@
+/*
+SELECTION SORT
+
+*** Description
+
+Iterate over array and grow a sorted array behind current element.
+
+For each position, find the smallest element in unsorted subarray starting at that position, and swap elements so that smallest element is at the beginning of unsorted subarray.
+
+example:
+[ 1 2 3|9 5 7 4 ]
+ sorted|unsorted
+smallest element in unsorted subarray is 4
+swap with element at beggining of unsorted subarray
+sorted portion has now grown:
+[ 1 2 3 4|5 7 9 ]
+
+*** Exercises
+
+- Implement insertion sort for array of numbers
+- Identify time complexity
+
+- Modify function to take comparator function. specify default if not provided (check out native Array.sort comparator function for reference)
+
+- Use your comparator function to verify that your sort is stable by taking input: [{value: 15}, {value: 10, order: 1}, {value: 10, order: 2}]
+
+*** Extra credit
+- Implement shell sort, a generalization of insertion sort
+(https://en.wikipedia.org/wiki/Shellsort)
+
+*/
+
+var selectionSort = function (array, comparator) {
+  comparator = comparator || defaultComparator;
+  array.forEach(function(element, index) {
+    // for each position, find index of minimum value in subarray starting at that positions
+    var minValue = element;
+    var minIndex = index;
+    for (var i = index; i<array.length; i++) {
+      if (comparator(array[i], minValue) < 0)
+        {
+          minValue = array[i];
+          minIndex = i;
+        }
+    }
+    // swap values at min index and current position
+    array = swap(array, index, minIndex);
+  });
+  return array;
+};
+
+function swap (arr, i1, i2) {
+  var temp = arr[i1];
+  arr[i1] = arr[i2];
+  arr[i2] = temp;
+  return arr;
+}
+
+function defaultComparator(a,b) {
+  if (a < b) return -1; // a comes first
+  else if (a > b) return 1; // b comes first
+  return 0;
+};
