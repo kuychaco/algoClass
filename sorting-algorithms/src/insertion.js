@@ -20,6 +20,7 @@ now repeat for next unsorted element
 
 - Implement insertion sort for array of numbers
 - Identify time complexity
+- Identify space complexity
 
 - Modify function to take comparator function. specify default if not provided (check out native Array.sort comparator function for reference)
 - Use your comparator function to verify that your sort is stable by taking input: [{value: 15}, {value: 10, order: 1}, {value: 10, order: 2}]
@@ -28,6 +29,20 @@ now repeat for next unsorted element
 - Implement shell sort, a generalization of insertion sort
 (https://en.wikipedia.org/wiki/Shellsort)
 
+*/
+
+
+/*
+Properties:
+O(1) extra space
+Time complexity:
+- worst: O(n^2) comparisons and swaps
+- best: O(n) when nearly sorted
+stable
+adaptive - O(n) time when nearly sorted
+
+Use cases:
+When the data is nearly sorted (since it's adaptive) or when the problem size is small (because it has low memory overhead)
 */
 
 var insertionSort = function(array, comparator) {

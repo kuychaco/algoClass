@@ -19,6 +19,7 @@ sorted portion has now grown:
 
 - Implement selection sort
 - Identify time complexity
+- Identify space complexity
 
 Stable Variant
 - Implement as a stable sort - rather than swapping, the minimum value is inserted into the first position and all other items are shifted one to the right. How does this impact performance?
@@ -29,6 +30,21 @@ Stable Variant
 
 */
 
+
+/*
+Properties:
+O(1) extra space
+O(n^2) comparisons (for worst and best)
+O(n) swaps
+not stable
+not adaptive
+
+Use cases:
+Since selection sort minimizes the number of swaps, it's useful when the cost of swapping items is high.
+
+Comparison to other algorithms:
+
+*/
 var selectionSort = function (array, comparator) {
   comparator = comparator || defaultComparator;
   array.forEach(function(element, index) {

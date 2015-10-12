@@ -16,6 +16,7 @@ Split array into sublists of size 1, merge adjacent sublists into sorted lists, 
 - Implement recursive merge sort (you might want to write a helper function to handle the merge step)
 - Implement iterative merge sort
 - Identify time complexity
+- Identify space complexity
 
 - Modify function to take comparator function. specify default if not provided (check out native Array.sort comparator function for reference)
 - Use your comparator function to verify that your sort is stable by taking input: [{value: 15}, {value: 10, order: 1}, {value: 10, order: 2}]
@@ -29,7 +30,18 @@ subarrays for natural merge sort: [ [1,2], [4,5], [9] ]
 
 */
 
-var mergeSortRecursive = function(array) {
+
+/*
+Properties:
+O(n) extra space for iterative solution
+O(n·log(n)) time (for worst and best)
+stable - the only stable O(n·log(n)) sorting algorithm
+not adaptive
+
+Use cases:
+If stabilty is a requirement and using extra space is no concern, merge sort is great because it's simple to implement, it's the only stable O(nlog(n)) sorting algorithm.
+*/
+function mergeSortRecursive (array) {
   // base case
   if (array.length <= 1) return array;
 
@@ -43,7 +55,7 @@ var mergeSortRecursive = function(array) {
   return merge(leftSorted, rightSorted);
 };
 
-var mergeSortIterative = function(array) {
+function mergeSortIterative (array) {
   // create array of subarrays with each element
   var splitArr = array.map(function(element) { return [element]; });
 

@@ -12,6 +12,7 @@ It has a partitioning step, in which you pick an element (called a pivot) and pa
 - Write a partition helper function. For choice of pivot, for a basic implementation, we recommend choosing either the first or last element in the subarray. If you need hints, look up the Lumoto partiton scheme. Test this out before moving forward!
 - Implement quicksort
 - Identify time complexity
+- Identify space complexity
 
 - Consider implications for choice of pivot (https://en.wikipedia.org/wiki/Quicksort#Choice_of_pivot)
 
@@ -22,13 +23,25 @@ Variants:
 
 */
 
+
+
+/*
+Properties:
+O(n) extra space
+O(n^2) time (for few unique keys), but typically O(n·log(n)) if recursion is balanced
+not stable
+not adaptive
+
+Use cases:
+Quicksort is in place and has low overhead. If a stable sort is not necessary. It has a higher worstcase time complexity than merge sort (if pivot is not in center of array)
+*/
 function quicksort(array, lo, hi) {
   if (lo === undefined) lo = 0;
   if (hi === undefined) hi = array.length-1;
 
   if (lo < hi) {
     // partition array
-    p = partition(array, lo, hi);
+    var p = partition(array, lo, hi);
     console.log('partitioning from', lo, 'to', hi, '=> partition:',  p);
     // sort subarrays
     quicksort(array, lo, p-1);
