@@ -66,7 +66,7 @@ Queue.prototype.dequeue = function() {
 
 Queue.prototype.peek = function() {
   // implement me...
-}
+};
 
 Queue.prototype.count = function() {
   // implement me...
@@ -82,8 +82,7 @@ Queue.prototype.count = function() {
 
 2. Implement a double-ended queue, with the following methods: enqueueLeft, dequeueLeft, enqueueRight, dequeueRight.
 
-3. Given a tree, print out the value of each node in breadth-first order using a queue data structure. 
+3. Given a tree, print out the value of each node in breadth-first order using a queue data structure.
 
 
  */
-
