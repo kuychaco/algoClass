@@ -93,4 +93,3 @@ console.log(myStack.pop(), 'should be c');
 console.log(myStack.count(), 'should be 2');
 console.log(myStack.peek(), 'should be b');
 console.log(myStack.count(), 'should be 2');
-
