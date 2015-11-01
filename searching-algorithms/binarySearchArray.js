@@ -13,6 +13,8 @@ Extra credit: Implement the function both iteratively and recursively.
 
 */
 
+// Time complexity: O(log(n))
+
 // // Iterative solution
 // function binarySearch(array, target) {
 //   var lo = 0;
