@@ -66,6 +66,7 @@ myList.removeBefore(refNode)
 => removed node
 remove node before the refNode passed in
 
+*SOLUTION: See doublyLinkedList.js file*
 
 
 *** Extra Credit:

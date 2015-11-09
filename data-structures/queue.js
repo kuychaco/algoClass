@@ -28,7 +28,7 @@ myQueue.count()
 => number of elements in queue
 
 
-*** Nightmare mode:
+*** Exercises:
 
 Modify your queue to take a max capacity and return a string if you try to add an element when there's no more room:
 myQueue.enqueue(value)

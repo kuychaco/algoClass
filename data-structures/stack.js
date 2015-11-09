@@ -29,7 +29,7 @@ myStack.count()
 => number of elements in stack
 
 
-*** Nightmare mode:
+*** Exercises:
 
 Modify your stack to take a max capacity and return a string if you try to add an element when there's no more room:
 myStack.push(value)
