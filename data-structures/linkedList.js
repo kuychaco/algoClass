@@ -16,35 +16,35 @@ invoke callback function with the value of each node
 myList.print()
 => string with all values in list (ex: '0, 1, 2, 3')
 
-myList.insertAfter(refNode, value) 
-=> value of new node
+myList.insertAfter(refNode, value)
+=> new node
 insert new node associated with value passed in after refNode
 
-myList.removeAfter(refNode) 
-=> value of removed node 
+myList.removeAfter(refNode)
+=> removed node
 remove node after the refNode
 
 myList.insertHead(value)
-=> value associated with new head 
+=> new head
 insert new head node at the beginning of the list with the value passed in
 
 myList.removeHead()
-=> value of removed head node
+=> removed head node
 remove the head node of the linked list
 
 myList.findNode(value)
 => first node that has a value matching what was passed in
 
 
-* Optimization: 
+* Optimization:
 Say we have a linked list that has 100 items and we want to add an item to the very end. How would you do that with your current implementation? How can you modify the data structure to add an item to the end in constant time?
 
 myList.appendToTail(value)
-=> value of tail node
+=> tail node
 add a new tail node at the end of the list with the associated value passed in
 
 myList.removeTail()
-=> value of removed tail node
+=> removed tail node
 remove the tail node from the list
 
 
@@ -52,18 +52,18 @@ remove the tail node from the list
 
 Now let's think about creating insertBefore and removeBefore methods for the nodes in our list. Can you think of an efficient way to do so?
 
-Think about time complexity. What would it be for your current implementation of a linked list? 
+Think about time complexity. What would it be for your current implementation of a linked list?
 
 How can we modify our data structures (Node and Linked List classes) so that we can make these O(1) operations?
 
 Once you've come up with a plan, implement the following methods.
 
-myList.insertBefore(refNode, value) 
-=> value of new node inserted
+myList.insertBefore(refNode, value)
+=> new node inserted
 insert new node with associated value before refNode
 
-myList.removeBefore(refNode) 
-=> value of removed node
+myList.removeBefore(refNode)
+=> removed node
 remove node before the refNode passed in
 
 
@@ -110,7 +110,7 @@ LinkedList.prototype.print = function() {
 LinkedList.prototype.insertAfter = function(node, value) {
   // get reference to former next
   var oldNext = node.next;
-  // create new node 
+  // create new node
   var newNext = new Node(value);
   // store it as the new next
   node.next = newNext;
@@ -118,14 +118,14 @@ LinkedList.prototype.insertAfter = function(node, value) {
   newNext.next = oldNext;
   // if reference node is tail, set tail to newNext
   if (this.tail === node) this.tail = newNext;
-  return newNext.value;
+  return newNext;
 };
 
 LinkedList.prototype.removeAfter = function(node) {
-  // if node is tail, then there's nothing to remove
-  if (!removedNode) return 'Nothing to remove';
   // store reference to removed node
   var removedNode = node.next;
+  // if node is tail, then there's nothing to remove
+  if (!removedNode) return 'Nothing to remove';
   // get reference to node after removed node
   var newNext = removedNode.next;
   // set newNext as the next node
@@ -134,7 +134,7 @@ LinkedList.prototype.removeAfter = function(node) {
   removedNode.next = null;
   // if removedNode is tail, set tail to node
   if (removedNode === this.tail) this.tail = node;
-  return removedNode.value;
+  return removedNode;
 };
 
 LinkedList.prototype.insertHead = function(value) {
@@ -142,7 +142,7 @@ LinkedList.prototype.insertHead = function(value) {
   var oldHead = this.head;
   this.head = newHead;
   newHead.next = oldHead;
-  return this.head.value;
+  return this.head;
 };
 
 LinkedList.prototype.removeHead = function() {
@@ -150,7 +150,7 @@ LinkedList.prototype.removeHead = function() {
   var newHead = oldHead.next;
   this.head = newHead;
   oldHead.next = null;
-  return oldHead.value;
+  return oldHead;
 }
 
 LinkedList.prototype.findNode = function(value) {
@@ -164,7 +164,7 @@ LinkedList.prototype.findNode = function(value) {
 
 LinkedList.prototype.appendToTail = function(value) {
   var newTail = new Node(value);
-  
+
   // // without myList.tail property: O(n)
   // var node = this.head;
   // while(node.next) {
@@ -176,7 +176,7 @@ LinkedList.prototype.appendToTail = function(value) {
   this.tail.next = newTail;
   this.tail = newTail;
 
-  return newTail.value;
+  return newTail;
 };
 
 
@@ -203,7 +203,3 @@ myList.insertAfter(myList.findNode(2), 2.5);
 console.log(myList.print(), 'should be 0, 2, 2.5, 3, 4');
 myList.removeAfter(myList.findNode(2));
 console.log(myList.print(), 'should be 0, 2, 3, 4');
-
-
-
-
