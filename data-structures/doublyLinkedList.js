@@ -17,19 +17,19 @@ myList.print()
 => string with all values in list (ex: '0, 1, 2, 3')
 
 myList.insertAfter(refNode, value)
-=> value of new node
+=> new node
 insert new node associated with value passed in after refNode
 
 myList.removeAfter(refNode)
-=> value of removed node
+=> removed node
 remove node after the refNode
 
 myList.insertHead(value)
-=> value associated with new head
+=> new head
 insert new head node at the beginning of the list with the value passed in
 
 myList.removeHead()
-=> value of removed head node
+=> removed head node
 remove the head node of the linked list
 
 myList.findNode(value)
@@ -40,11 +40,11 @@ myList.findNode(value)
 Say we have a linked list that has 100 items and we want to add an item to the very end. How would you do that with your current implementation? How can you modify the data structure to add an item to the end in constant time?
 
 myList.appendToTail(value)
-=> value of tail node
+=> tail node
 add a new tail node at the end of the list with the associated value passed in
 
 myList.removeTail()
-=> value of removed tail node
+=> removed tail node
 remove the tail node from the list
 
 
@@ -59,11 +59,11 @@ How can we modify our data structures (Node and Linked List classes) so that we 
 Once you've come up with a plan, implement the following methods.
 
 myList.insertBefore(refNode, value)
-=> value of new node inserted
+=> new node inserted
 insert new node with associated value before refNode
 
 myList.removeBefore(refNode)
-=> value of removed node
+=> removed node
 remove node before the refNode passed in
 
 
@@ -122,7 +122,7 @@ LinkedList.prototype.insertAfter = function(node, value) {
   if (this.tail === node) this.tail = newNext;
   // set prev properties
 
-  return newNext.value;
+  return newNext;
 };
 
 LinkedList.prototype.removeAfter = function(node) {
@@ -144,7 +144,7 @@ LinkedList.prototype.removeAfter = function(node) {
 
   // if removedNode is tail, set tail to node
   if (removedNode === this.tail) this.tail = node;
-  return removedNode.value;
+  return removedNode;
 };
 
 LinkedList.prototype.insertHead = function(value) {
@@ -153,7 +153,7 @@ LinkedList.prototype.insertHead = function(value) {
   this.head = newHead;
   newHead.next = oldHead;
   oldHead.prev = newHead;
-  return this.head.value;
+  return this.head;
 };
 
 LinkedList.prototype.removeHead = function() {
@@ -162,7 +162,7 @@ LinkedList.prototype.removeHead = function() {
   this.head = newHead;
   newHead.prev = null;
   oldHead.next = null;
-  return oldHead.value;
+  return oldHead;
 }
 
 LinkedList.prototype.findNode = function(value) {
@@ -191,7 +191,7 @@ LinkedList.prototype.appendToTail = function(value) {
   newTail.prev = oldTail;
   this.tail = newTail;
 
-  return newTail.value;
+  return newTail;
 };
 
 LinkedList.prototype.insertBefore = function(node, value) {
@@ -207,7 +207,7 @@ LinkedList.prototype.insertBefore = function(node, value) {
   // if node is head, set newPrev as head
   if (node === this.head) this.head = newPrev;
 
-  return newPrev.value;
+  return newPrev;
 };
 
 LinkedList.prototype.removeBefore = function(node) {
@@ -227,8 +227,7 @@ LinkedList.prototype.removeBefore = function(node) {
   removedNode.next = null;
   removedNode.prev = null;
 
-
-  return removedNode.value;
+  return removedNode;
 };
 
 var myList = new LinkedList(0);
