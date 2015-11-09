@@ -28,7 +28,7 @@ calls callbackFn once for each value in the set
 
 Note: ES6 has a Set data structure as part of the core language.
 
-*** Extra Credit:
+*** Additional Exercises:
 
 Modify your set to take a max capacity and return a string if you try to add an element when there's no more room
 mySet.add(value)

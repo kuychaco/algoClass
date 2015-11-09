@@ -67,7 +67,7 @@ myList.removeBefore(refNode)
 remove node before the refNode passed in
 
 
-*** Extra Credit:
+*** Additional Exercises:
 
 Implement a circularly linked list:
 https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list

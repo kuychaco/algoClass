@@ -45,7 +45,7 @@ myMap.forEach(callbackFn)
 Invokes callback function once for each key-value pair in the hash table
 
 
-*** Extra Credit:
+*** Additional Exercises:
 
 Resize the hash table:
 - if the count becomes greater than 75% of the table size, double the table size and redistribute the key/value pairs
@@ -120,9 +120,8 @@ HashTable.prototype.forEach = function(callback) {
 
 1. Implement a hash table with a binary search tree.
 
-2. Given two arrays with values, return the values that are present in both. Do this in linear time. 
+2. Given two arrays with values, return the values that are present in both. Do this in linear time.
 
-3. Implement a hash table using linked lists for collision-handling. Why might this be preferable to using arrays. 
+3. Implement a hash table using linked lists for collision-handling. Why might this be preferable to using arrays.
 
 */
-
