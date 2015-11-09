@@ -45,7 +45,7 @@ myMap.forEach(callbackFn)
 Invokes callback function once for each key-value pair in the hash table
 
 
-*** Nightmare mode:
+*** Exercises:
 
 Resize the hash table:
 - if the count becomes greater than 75% of the table size, double the table size and redistribute the key/value pairs

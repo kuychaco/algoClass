@@ -68,7 +68,7 @@ remove node before the refNode passed in
 
 
 
-*** Nightmare mode:
+*** Additional Exercises:
 
 Implement a circularly linked list:
 https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
@@ -76,8 +76,6 @@ https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
 
  */
 
-
-// 40 min
 
 function Node(value) {
   this.value = value;
