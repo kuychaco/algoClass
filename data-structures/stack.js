@@ -46,44 +46,12 @@ myStack.until(7)
 => 4
 What's the time complexity?
 
-Create a min method that returns the minimum value in the stack in constant time.
-
-Towers of Hanoi:
-You have three vertical rods and N disks of different sizes that can slide onto the rods. Initially the disks are arranged in a stack in ascending order of size on the first rod and your goal is to move all the disks to the last rod given
-...
-
-Implement k stacks in a single array of fixed length. Start by first implementing two stacks in an array.
-
-Balanced parens.
-
-function balanced (str) {
-  return Array.prototype.reduce.call(str, function(acc, el){
-    if (el === '(') {
-      return {
-        left: acc.left + 1,
-        right: acc.right,
-        valid: acc.valid
-      }
-    } else if (el === ')') {
-      return {
-        left: acc.left,
-        right: acc.right + 1,
-        valid: ((acc.left <= acc.right + 1) && acc.valid)
-      }
-    } else {
-      return acc
-    }
-  }, {
-    left: 0,
-    right: 0,
-    valid: true
-  })
-}
+Implement a MinStack that has a min method which will return the minimum value in the stack in constant time.
 
 */
 
 function Stack(capacity) {
-  this._capacity = capacity;
+  this._capacity = capacity || Infinity;
   this._storage = {};
   this._count = 0;
 }
@@ -118,12 +86,61 @@ Stack.prototype.count = function() {
 };
 
 
-var myStack = new Stack(3);
-console.log(myStack.push('a'), 'should be 1');
-console.log(myStack.push('b'), 'should be 2');
-console.log(myStack.push('c'), 'should be 3');
-console.log(myStack.push('d'), 'should be Max capacity reached');
-console.log(myStack.pop(), 'should be c');
-console.log(myStack.count(), 'should be 2');
-console.log(myStack.peek(), 'should be b');
-console.log(myStack.count(), 'should be 2');
+// var myStack = new Stack(3);
+// console.log(myStack.push('a'), 'should be 1');
+// console.log(myStack.push('b'), 'should be 2');
+// console.log(myStack.push('c'), 'should be 3');
+// console.log(myStack.push('d'), 'should be Max capacity reached');
+// console.log(myStack.pop(), 'should be c');
+// console.log(myStack.count(), 'should be 2');
+// console.log(myStack.peek(), 'should be b');
+// console.log(myStack.count(), 'should be 2');
+
+//____________________________________________
+// Implement a min stack
+function MinStack(capacity) {
+  this._capacity = capacity;
+  this._storage = {};
+  this._count = 0;
+  this._min = new Stack();
+}
+
+// O(1)
+MinStack.prototype.push = function(value) {
+  if (this._count < this._capacity) {
+    if (this._min.peek() < value) {
+      this._min.push(this._min.peek());
+    } else {
+      this._min.push(value);
+    }
+    this._storage[this._count++] = value;
+    return this._count;
+  }
+  return 'Max capacity already reached. Remove element before adding a new one.';
+};
+
+// O(1)
+MinStack.prototype.pop = function() {
+  this._min.pop();
+  var value = this._storage[--this._count];
+  delete this._storage[this._count];
+  if (this._count < 0) {
+    this._count = 0;
+  }
+  return value;
+};
+
+// O(1)
+MinStack.prototype.peek = function() {
+  return this._storage[this._count-1];
+};
+
+// O(1)
+MinStack.prototype.count = function() {
+  return this._count;
+};
+
+// O(1)
+MinStack.prototype.min = function() {
+  return this._min.peek();
+};
