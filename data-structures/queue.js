@@ -45,7 +45,13 @@ myQueue.until(7)
 => 3
 What's the time complexity?
 
+Implement a queue using two stacks.
+
+Implement a queue using one stack.
+
+
  */
+
 
 function Queue(capacity) {
   this._capacity = capacity;

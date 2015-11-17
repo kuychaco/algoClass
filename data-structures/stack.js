@@ -46,7 +46,41 @@ myStack.until(7)
 => 4
 What's the time complexity?
 
- */
+Create a min method that returns the minimum value in the stack in constant time.
+
+Towers of Hanoi:
+You have three vertical rods and N disks of different sizes that can slide onto the rods. Initially the disks are arranged in a stack in ascending order of size on the first rod and your goal is to move all the disks to the last rod given
+...
+
+Implement k stacks in a single array of fixed length. Start by first implementing two stacks in an array.
+
+Balanced parens.
+
+function balanced (str) {
+  return Array.prototype.reduce.call(str, function(acc, el){
+    if (el === '(') {
+      return {
+        left: acc.left + 1,
+        right: acc.right,
+        valid: acc.valid
+      }
+    } else if (el === ')') {
+      return {
+        left: acc.left,
+        right: acc.right + 1,
+        valid: ((acc.left <= acc.right + 1) && acc.valid)
+      }
+    } else {
+      return acc
+    }
+  }, {
+    left: 0,
+    right: 0,
+    valid: true
+  })
+}
+
+*/
 
 function Stack(capacity) {
   this._capacity = capacity;
