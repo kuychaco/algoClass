@@ -16,3 +16,13 @@ function paintFill(screen, point, newColor) {
   recurse(point.row, point.column);
   return screen;
 }
+
+var screen = [
+  [1,1,1,1,1,1,1],
+  [1,2,2,2,2,1,1],
+  [3,3,3,2,2,2,1],
+  [1,1,2,2,2,3,3],
+  [1,1,1,1,3,3,3]
+];
+
+console.log(paintFill(screen, {row: 2, column: 4}, 5));
