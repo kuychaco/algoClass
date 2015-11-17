@@ -56,30 +56,6 @@ Implement k stacks in a single array of fixed length. Start by first implementin
 
 Balanced parens.
 
-function balanced (str) {
-  return Array.prototype.reduce.call(str, function(acc, el){
-    if (el === '(') {
-      return {
-        left: acc.left + 1,
-        right: acc.right,
-        valid: acc.valid
-      }
-    } else if (el === ')') {
-      return {
-        left: acc.left,
-        right: acc.right + 1,
-        valid: ((acc.left <= acc.right + 1) && acc.valid)
-      }
-    } else {
-      return acc
-    }
-  }, {
-    left: 0,
-    right: 0,
-    valid: true
-  })
-}
-
 */
 
 function Stack(capacity) {
@@ -127,3 +103,61 @@ console.log(myStack.pop(), 'should be c');
 console.log(myStack.count(), 'should be 2');
 console.log(myStack.peek(), 'should be b');
 console.log(myStack.count(), 'should be 2');
+
+function MinStack(capacity) {
+  this._capacity = capacity;
+  this._storage = {};
+  this._count = 0;
+  this._min = new Stack(capacity);
+}
+
+// O(1)
+MinStack.prototype.push = function(value) {
+  if (this._count < this._capacity) {
+    if (this._min.peek() < value) {
+      this._min.push(this._min.peek());
+    } else {
+      this._min.push(value);
+    }
+    this._storage[this._count++] = value;
+    return this._count;
+  }
+  return 'Max capacity already reached. Remove element before adding a new one.';
+};
+
+// O(1)
+MinStack.prototype.pop = function() {
+  this._min.pop();
+  var value = this._storage[--this._count];
+  delete this._storage[this._count];
+  if (this._count < 0) {
+    this._count = 0;
+  }
+  return value;
+};
+
+// O(1)
+MinStack.prototype.peek = function() {
+  return this._storage[this._count-1];
+}
+
+// O(1)
+MinStack.prototype.count = function() {
+  return this._count;
+};
+
+MinStack.prototype.min = function() {
+  return this._min.peek();
+}
+
+var myMinStack = new MinStack(3);
+console.log(myMinStack.push(1), 'should be 1');
+console.log(myMinStack.push(2), 'should be 2');
+console.log(myMinStack.push(3), 'should be 3');
+console.log(myMinStack.min(), 'should be 1');
+console.log(myMinStack.push(4), 'should be Max capacity reached');
+console.log(myMinStack.pop(), 'should be 3');
+console.log(myMinStack.count(), 'should be 2');
+console.log(myMinStack.min(), 'should be 1');
+console.log(myMinStack.peek(), 'should be 2');
+console.log(myMinStack.count(), 'should be 2');
