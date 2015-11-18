@@ -46,9 +46,9 @@ Heap.prototype.insert = function(value) {
       return 'value added to index '+index;
     }
     // Recursive Case: swap with parent and make recursive call
-    that.storage[index] = that.storage[index] ^ that.storage[parentInd];
-    that.storage[parentInd] = that.storage[index] ^ that.storage[parentInd];
-    that.storage[index] = that.storage[index] ^ that.storage[parentInd];
+    var temp = that.storage[index];
+    that.storage[index] = that.storage[parentInd];
+    that.storage[parentInd] = temp;
 
     return reheapify(parentInd);
   };
@@ -96,7 +96,7 @@ Heap.prototype.removeMax = function() {
     // If the index of the max value is not equal to the index of the current node
     // Then swap the nodes and reheapify at the new index of the current node
     if (maxIndex !== index) {
-      // Swap node values
+      // Swap node values (here's a nifty way to do so "in place" using the XOR bitwise operator)
       that.storage[index] = that.storage[index] ^ that.storage[maxIndex];
       that.storage[maxIndex] = that.storage[index] ^ that.storage[maxIndex];
       that.storage[index] = that.storage[index] ^ that.storage[maxIndex];
