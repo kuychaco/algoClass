@@ -93,6 +93,21 @@ HashTable.prototype.find = function(key) {
   };
 };
 
+// O(n)
+HashTable.prototype.resize = function(newSize) {
+  var oldStorage = this._storage;
+  this._size = newSize;
+  this._count = 0;
+  this._storage = [];
+  var that = this;
+  oldStorage.forEach(function(bucket) {
+    bucket.forEach(function(item) {
+      var key = Object.keys(item)[0];
+      that.set(key, item[key]);
+    });
+  });
+};
+
 // O(1)
 HashTable.prototype.set = function(key, value) {
 
@@ -108,12 +123,16 @@ HashTable.prototype.set = function(key, value) {
     newItem[key] = value;
     this._count++;
     bucket.push(newItem);
+    if (this._count > 0.75*this._size) {
+      this.resize(2*this._size);
+    }
   }
   return this;
 };
 
 var myMap = new HashTable(10);
 console.log(myMap.set('key', 'value'), 'should be HT object');
+
 
 // O(1)
 HashTable.prototype.get = function(key) {
@@ -140,10 +159,15 @@ console.log(myMap.has('foo'), 'should be false');
 // O(1)
 HashTable.prototype.delete = function(key) {
   var match = this.find(key).match;
-  var bucket = this.find(key).bucket;
-  var matchIndex = this.find(key).matchIndex;
-  match && bucket.splice(matchIndex, 1);
-  if (this._count > 0) this._count--;
+  if (match) {
+    var bucket = this.find(key).bucket;
+    var matchIndex = this.find(key).matchIndex;
+    bucket.splice(matchIndex, 1);
+    this._count--;
+    if (this._count < 0.25*this._size) {
+      this.resize(0.5*this._size);
+    }
+  }
   return !!match;
 };
 
@@ -169,8 +193,20 @@ HashTable.prototype.forEach = function(callback) {
       callback(item);
     });
   });
-}
+};
 
+console.log('count', myMap._count, 'should be 0');
+console.log('size', myMap._size, 'should be 5');
 myMap.set('foo', 'bar');
 myMap.set('fooAgain', 'barAgain');
+myMap.set('a', 1);
+myMap.set('b', 2);
 myMap.forEach(console.log);
+console.log('count', myMap._count, 'should be 4');
+console.log('size', myMap._size, 'should be 10 (doubled)');
+myMap.delete('a');
+console.log('count', myMap._count);
+console.log('size', myMap._size);
+myMap.delete('b');
+console.log('count', myMap._count);
+console.log('size', myMap._size, 'should be 5 (halved)');
