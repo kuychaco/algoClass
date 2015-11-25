@@ -24,7 +24,10 @@ function fibonnaciDP (n) {
     1: 1
   };
   function recurse(m) {
-    return memo[m] !== undefined ? memo[m] : recurse(m-1) + recurse(m-2);
+    if (memo[m] === undefined) {
+      memo[m] = recurse(m-1) + recurse(m-2);
+    }
+    return memo[m];
   }
   return recurse(n);
 }
