@@ -156,7 +156,7 @@ function Queue_TwoStacks() {
 }
 
 Queue_TwoStacks.prototype.enqueue = function(val) {
-  this.storageIn.push(val);
+  this._stackIn.push(val);
 };
 
 Queue_TwoStacks.prototype._transferStacks = function() {
