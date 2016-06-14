@@ -14,3 +14,13 @@ Welcome to the exercises. This is where the magic happens!
 4. If you want a challenge, attempt some popular recursion interview questions:
   - https://github.com/kuychaco/algoClass/tree/master/recursion
   - Note: some of these will only click after we go through sorting, graphs & trees later this week.
+
+###Tuesday - June 14th
+1. Implement the elementary sorting algorithms (bubble, insertion, selection):
+  - https://github.com/kuychaco/algoClass/tree/master/sorting-algorithms
+2. Implement Mergesort
+  - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/merge.js
+3. Implement Quicksort
+  - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/quick.js
+4. [Bonus] Try out Heapsort
+  - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/heap.js
