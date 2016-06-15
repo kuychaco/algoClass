@@ -24,3 +24,12 @@ Welcome to the exercises. This is where the magic happens!
   - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/quick.js
 4. [Bonus] Try out Heapsort
   - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/heap.js
+
+###Wednesday - June 15th
+1. Implement a Linked List:
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/linkedList.js
+2. Create a tree data structure:
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/tree.js
+  - Note: Hold off on Depth First Search and Depth First Search because we haven't covered that yet.
+3. This is a catch up day so use the rest of the afternoon to finish up exercises from previous days and review anything that was confusing. 
+
