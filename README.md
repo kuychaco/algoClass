@@ -33,3 +33,8 @@ Welcome to the exercises. This is where the magic happens!
   - Note: Hold off on Depth First Search and Breadth First Search because we haven't covered that yet.
 3. This is a catch up day so use the rest of the afternoon to finish up exercises from previous days and review anything that was confusing. 
 
+###Thursday - June 16th
+1. Binary Search Tree
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/binarySearchTree.js
+2. Binary Search Array
+  - https://github.com/kuychaco/algoClass/blob/master/searching-algorithms/binarySearchArray.js
