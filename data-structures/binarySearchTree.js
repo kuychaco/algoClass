@@ -30,10 +30,6 @@ bsTree.traverseDepthFirst_postOrder(callback)
 => undefined
 Invoke the callback for every node in a depth-first post-order (visit the current node after its child nodes)
 
-bsTree.traverseBreadthFirst(callback)
-=> undefined
-Invoke the callback for every node in a breadth-first order
-
 bsTree.checkIfFull()
 => true/false
 A binary tree is full if every node has either zero or two children (no nodes have only one child)
@@ -79,10 +75,6 @@ BinarySearchTree.prototype.traverseDepthFirst_postOrder = function(fn) {
 };
 // Time complexity:
 
-BinarySearchTree.prototype.traverseBreadthFirst = function(fn) {
-  // implement me...
-};
-// Time complexity:
 
 BinarySearchTree.prototype.checkIfFull = function() {
   // implement me...
