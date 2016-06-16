@@ -1,5 +1,5 @@
 /*
-MERGE SORT
+QUICK SORT
 
 *** Description
 
