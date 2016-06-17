@@ -30,6 +30,13 @@ bsTree.traverseDepthFirst_postOrder(callback)
 => undefined
 Invoke the callback for every node in a depth-first post-order (visit the current node after its child nodes)
 
+bsTree.isValid()
+=> returns true if BST is a valid BST otherwise returns false. This method is useful for checking your other methods.
+
+bsTree.removeNode(value)
+=> node
+Remove node from tree.
+
 bsTree.checkIfFull()
 => true/false
 A binary tree is full if every node has either zero or two children (no nodes have only one child)
