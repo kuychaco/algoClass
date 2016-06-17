@@ -49,8 +49,6 @@ graph.forEach(callback)
 => undefined
 Traverse the graph and invoke the passed callback once for each node. The callback function receives the following for each node: node value, node Neighbors, all nodes.
 
-*** Nightmare mode:
-
 Implement traversal methods for depth-first and breadth-first traversal. The methods take a starting node and a callback that gets invoked for each node. The callback should receive two arguments: the node value and the distance (number of edges that separate the node from the starting node). See example usage below.
 
 graph.traverseDepthFirst(value1, callback)
