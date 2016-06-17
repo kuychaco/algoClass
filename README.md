@@ -41,7 +41,7 @@ Welcome to the exercises. This is where the magic happens!
 
 ###Friday - June 17th
 1. Binary Search Tree (delete nodes)
-- https://github.com/kuychaco/algoClass/blob/master/data-structures/binarySearchTree.js
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/binarySearchTree.js
 2. Implement a graph
   - https://github.com/kuychaco/algoClass/blob/master/data-structures/graph.js
 3. DFS for graph
