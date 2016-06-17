@@ -38,3 +38,15 @@ Welcome to the exercises. This is where the magic happens!
   - https://github.com/kuychaco/algoClass/blob/master/data-structures/binarySearchTree.js
 2. Binary Search Array
   - https://github.com/kuychaco/algoClass/blob/master/searching-algorithms/binarySearchArray.js
+
+###Friday - June 17th
+1. Binary Search Tree (delete nodes)
+- https://github.com/kuychaco/algoClass/blob/master/data-structures/binarySearchTree.js
+2. Implement a graph
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/graph.js
+3. DFS for graph
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/graph.js
+4. BFS for graph
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/graph.js 
+5. [Bonus] BFS/DFS for tree
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/tree.js
