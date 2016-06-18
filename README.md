@@ -50,3 +50,7 @@ Welcome to the exercises. This is where the magic happens!
   - https://github.com/kuychaco/algoClass/blob/master/data-structures/graph.js 
 5. [Bonus] BFS/DFS for tree
   - https://github.com/kuychaco/algoClass/blob/master/data-structures/tree.js
+
+###Saturday - June 18th
+1. Create your own Hash Tables! Watch out for those collisions!
+  - https://github.com/kuychaco/algoClass/blob/master/data-structures/hashTable.js
