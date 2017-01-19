@@ -120,7 +120,7 @@ Queue.prototype.until = function(value) {
 // EXERCISES
 // Implement a queue using two stacks
 function Stack(capacity) {
-  this._capacity = capacity || Infninty;
+  this._capacity = capacity || Infinity;
   this._storage = {};
   this._count = 0;
 }
