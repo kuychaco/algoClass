@@ -67,6 +67,10 @@ Stack.prototype.push = function(value) {
 
 // O(1)
 Stack.prototype.pop = function() {
+  if (this._count === 0) {
+    return 'No element inside the stack. Add element before poping.'
+  }
+  
   var value = this._storage[--this._count];
   delete this._storage[this._count];
   if (this._count < 0) {
