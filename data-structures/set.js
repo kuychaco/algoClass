@@ -70,7 +70,7 @@ Set.prototype.add = function(value) {
 
 // O(1)
 Set.prototype.delete = function(value) {
-  if (this._storage[value]) {
+  if (this.has(value)) {
     delete this._storage[value];
     this._count--;
     return true;
