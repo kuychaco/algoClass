@@ -25,7 +25,7 @@ Welcome to the exercises. This is where the magic happens!
 4. [Bonus] Try out Heapsort
   - https://github.com/kuychaco/algoClass/blob/master/sorting-algorithms/heap.js
 
-###Wednesday - June 15th
+### Wednesday - June 15th
 1. Implement a Linked List:
   - https://github.com/kuychaco/algoClass/blob/master/data-structures/linkedList.js
 2. Create a tree data structure:
