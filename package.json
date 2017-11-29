@@ -1,0 +1,24 @@
+{
+  "name": "bgando-algorithms",
+  "version": "1.0.0",
+  "description": "Welcome to the exercises. This is where the magic happens!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-ilya/algoClass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-ilya/algoClass/issues"
+  },
+  "homepage": "https://github.com/s-ilya/algoClass#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "jest": "^21.2.1"
+  }
+}
