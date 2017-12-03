@@ -1,3 +1,34 @@
+var Stack = function() {
+  this.storage = {};
+  };
+
+Stack.prototype.push = function(val) {
+  var key = Object.keys(this.storage).length;
+  this.storage[key] = val;
+};
+
+Stack.prototype.pop = function(val) {
+  var key = Object.keys(this.storage).length;
+  delete this.storage[key-1];
+};
+
+Stack.prototype.size = function(val) {
+  return Object.keys(this.storage).length;
+};
+
+var myWeeklyMenu = new Stack();
+
+myWeeklyMenu.push('Redbeans');
+myWeeklyMenu.push('cabbage');
+myWeeklyMenu.push('onions');
+console.log(myWeeklyMenu);
+myWeeklyMenu.pop();
+console.log(myWeeklyMenu);
+var storageSize = myWeeklyMenu.size();
+console.log(storageSize);
+
+
+
 /*
 
 STACK
