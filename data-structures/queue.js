@@ -68,6 +68,9 @@ Queue.prototype.enqueue = function(value) {
 
 // O(1)
 Queue.prototype.dequeue = function() {
+  if (this.count() === 0) {
+     return 'Queue is empty! Enqueue an element before you dequeue';
+  }
   var element = this._storage[this._head];
   delete this._storage[this._head];
   if (this._head < this._tail) this._head++;
