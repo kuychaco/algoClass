@@ -73,9 +73,6 @@ Stack.prototype.pop = function() {
   
   var value = this._storage[--this._count];
   delete this._storage[this._count];
-  if (this._count < 0) {
-    this._count = 0;
-  }
   return value;
 };
 
